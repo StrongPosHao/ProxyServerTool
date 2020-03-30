@@ -126,6 +126,6 @@ class Socks5ServerConn:
 
 
 if __name__ == '__main__':
-    server = Socks5Server(('', 8488))
+    server = Socks5Server(('', 8489))
     server.listen()
     server.close()
