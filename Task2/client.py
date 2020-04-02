@@ -189,6 +189,11 @@ class Socks5ClientConn:
 
 
 def main(argv):
+    """
+    main function, the entrance of the program
+    :param argv: command line parameters
+    :return:
+    """
     client_address = ''
     server_address = ''
     password = ''
@@ -213,4 +218,5 @@ def main(argv):
 
 
 if __name__ == '__main__':
+    # to receive command line parameters
     main(sys.argv[1:])

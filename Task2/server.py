@@ -140,6 +140,11 @@ class Socks5ServerConn:
 
 
 def main(argv):
+    """
+    main function, the entrance of the program
+    :param argv: command line parameters
+    :return:
+    """
     server_address = ''
     password = ''
     encryptor = ''
@@ -158,7 +163,5 @@ def main(argv):
 
 
 if __name__ == '__main__':
+    # to receive command line parameters
     main(sys.argv[1:])
-    # server = Socks5Server(('', 8489))
-    # server.listen()
-    # server.close()

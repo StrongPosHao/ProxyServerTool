@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26016399-9d6f-4dfa-848a-e5a73778132f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Task2/cmd_line" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task2/encryption_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task2/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task2/test_cmdl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ANSProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ANSProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task1/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task1/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Task2/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task2/client2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/cmd_line" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/cmd_line" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/encryption_test.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Task2/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task2/test_aes_gcm.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/test_aes_gcm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task2/test_pkbdf2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/test_pkbdf2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/test_aes_gcm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/test_bcrypt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/test_cmdl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/test_pkbdf2.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Task2/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -208,7 +205,7 @@
       <workItem from="1585620441497" duration="890000" />
       <workItem from="1585643036816" duration="1059000" />
       <workItem from="1585729723198" duration="19991000" />
-      <workItem from="1585794133221" duration="9656000" />
+      <workItem from="1585794133221" duration="14840000" />
     </task>
     <task id="LOCAL-00001" summary="'2020/3/30 21:06 Toy code of symmetric encryption algorithm finished'">
       <created>1585573680626</created>
@@ -217,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585573680626</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="'2020/3/30 21:06 Task2 main function implemented'">
+      <created>1585808217507</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585808217508</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +243,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="'2020/3/30 21:06 Toy code of symmetric encryption algorithm finished'" />
-    <option name="LAST_COMMIT_MESSAGE" value="'2020/3/30 21:06 Toy code of symmetric encryption algorithm finished'" />
+    <MESSAGE value="'2020/3/30 21:06 Task2 main function implemented'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'2020/3/30 21:06 Task2 main function implemented'" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ANSProject$test.coverage" NAME="test Coverage Results" MODIFIED="1584700242141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task1" />

@@ -1,4 +1,3 @@
-import logging
 import re
 import socket
 from http.server import BaseHTTPRequestHandler
@@ -34,7 +33,6 @@ def encrypt_msg(pw, msg, encryption):
     )
     # use PBKDF2 to derive the key
     key = kdf.derive(pw)
-    print(encryption)
     encryptor = AESGCM(key) if encryption == 'AES-GCM' else ChaCha20Poly1305(key)
     ct = encryptor.encrypt(nonce, msg, None)
     return ct
