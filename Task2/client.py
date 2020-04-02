@@ -2,22 +2,30 @@ import socket
 import logging
 import threading
 from utils import AuthResponse, AuthRequest, IPV4_REC, ConnResponse, ConnRequest, socket_recvall, HTTPRequest
+from utils import encrypt_msg, decrypt_ct
 import os
+import sys
+import getopt
 
 # set the log
 logging.basicConfig(level=logging.INFO)
 
+
 class Socks5Client:
 
-    def __init__(self, local: tuple, proxy: tuple, method='tcp'):
+    def __init__(self, local: tuple, proxy: tuple, pw: bytes, encryptor, method='tcp'):
         """
         Initiate the socks5 client
         :param local: localhost address. Format: (IP address, port number)
         :param proxy: proxy server address. Format: (IP address, port number)
         :param method: Transport protocol, either TCP or UDP.
+        :param pw: password
+        :param encryptor: encryption method , either AES-GCM or Chacha20Poly1305
         """
         self.local = local
         self.proxy = proxy
+        self.pw = pw
+        self.encryptor = encryptor
         self.method = method.lower()
         if self.method == 'tcp':
             self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -37,7 +45,9 @@ class Socks5Client:
         while True:
             try:
                 conn, addr = self.s.accept()
-                thread = threading.Thread(target=(lambda c: Socks5ClientConn(c, self.proxy)), args=(conn, ))
+                # start a new thread to listen
+                thread = threading.Thread(target=(lambda c: Socks5ClientConn(c, self.proxy, self.pw, self.encryptor)),
+                                          args=(conn,))
                 thread.start()
             except KeyboardInterrupt as e:
                 self.traffic_info()
@@ -64,14 +74,18 @@ class Socks5Client:
 class Socks5ClientConn:
     traffic = dict()
 
-    def __init__(self, local: socket.socket, proxy: tuple, method=ConnRequest.METHOD_TCP):
+    def __init__(self, local: socket.socket, proxy: tuple, pw: bytes, encryptor, method=ConnRequest.METHOD_TCP):
         """
         Initiate socks5 client connection
         :param proxy: proxy server address.
+        :param pw: password
+        :param encryptor: encryption method , either AES-GCM or Chacha20Poly1305
         :param method: Transport protocol, either TCP or UDP.
         """
         self.local = local
         self.proxy = proxy
+        self.pw = pw
+        self.encryptor = encryptor
         self.method = method
         data = socket_recvall(self.local)
         # TODO: NO HTTPS OR SSL
@@ -110,14 +124,18 @@ class Socks5ClientConn:
     def forwarding(self, data):
         """
         Client forward traffic to server.
-        :param data:
+        :param data: traffic
+        :param pw: password
+        :param encryptor: encryption method , either AES-GCM or Chacha20Poly1305
         :return:
         """
+        data = encrypt_msg(self.pw, data, self.encryptor)
         self.s.sendall(data)
         while True:
             msg = socket_recvall(self.s)
             if msg:
                 break
+        msg = decrypt_ct(self.pw, msg, self.encryptor)
         Socks5ClientConn.traffic.setdefault(self.remote, 0)
         Socks5ClientConn.traffic[self.remote] += len(msg)
         self.local.sendall(msg)
@@ -170,8 +188,29 @@ class Socks5ClientConn:
         return True
 
 
-if __name__ == '__main__':
-    client = Socks5Client(('', 8488), ('localhost', 8489))
+def main(argv):
+    client_address = ''
+    server_address = ''
+    password = ''
+    encryptor = ''
+    opts, args = getopt.getopt(argv, 'c:s:p:e:', ['client', 'server', 'password', 'encryptor'])
+    for opt, arg in opts:
+        if opt in ('-c', '--client'):
+            client_address = arg
+        elif opt in ('-s', '--server'):
+            server_address = arg
+        elif opt in ('-p', '--password'):
+            password = arg.encode('ascii')
+        elif opt in ('-e', '--encryptor'):
+            encryptor = arg
+    client_split = client_address.split(':')
+    server_split = server_address.split(':')
+    client = Socks5Client(local=('', int(client_split[1])), proxy=(server_split[0], int(server_split[1])), pw=password,
+                          encryptor=encryptor)
     client.listen()
     client.close()
     os.system('pause > nul')
+
+
+if __name__ == '__main__':
+    main(sys.argv[1:])

@@ -1,7 +1,9 @@
 import socket
 import threading
 import logging
-from utils import AuthResponse, AuthRequest, ConnResponse, ConnRequest, socket_recvall
+from utils import AuthResponse, AuthRequest, ConnResponse, ConnRequest, socket_recvall, decrypt_ct, encrypt_msg
+import sys
+import getopt
 
 # set the log
 logging.basicConfig(level=logging.INFO)
@@ -11,14 +13,18 @@ VALID_METHODS = {b'\x00': 'NO AUTHENTICATION REQUIRED'}
 
 class Socks5Server:
 
-    def __init__(self, addr, method='tcp'):
+    def __init__(self, addr, pw, encryptor, method='tcp'):
         """
         Init the socks5 server
         :param addr: server address
+        :param pw: password
+        :param encryptor: encryption method, either AES-GCM or Chacha20Poly1305
         :param method: transport protocol, default TCP.
         """
         self.addr = addr
         self.s = None
+        self.pw = pw
+        self.encryptor = encryptor
         self.method = method.lower()
         if self.method not in ('tcp', 'udp'):
             raise ValueError('Only support TCP or UDP!')
@@ -38,7 +44,8 @@ class Socks5Server:
         self.s.listen(unaccepted_pkg)
         while True:
             conn, addr = self.s.accept()
-            thread = threading.Thread(target=(lambda c, a: Socks5ServerConn(c, a, self.addr)), args=(conn, addr))
+            thread = threading.Thread(target=(lambda c, a: Socks5ServerConn(c, a, self.addr, self.pw, self.encryptor)),
+                                      args=(conn, addr))
             thread.start()
 
     def close(self):
@@ -47,14 +54,19 @@ class Socks5Server:
 
 class Socks5ServerConn:
 
-    def __init__(self, s: socket.socket, client_addr, server_addr):
+    def __init__(self, s: socket.socket, client_addr, server_addr, pw, encryptor):
         """
         Initiate the Socks5 server connection object
         :param s: socket connection object
         :param client_addr: client address
+        :param server_addr: server address
+        :param pw: password
+        :param encryptor: encryption method, either AES-GCM or Chacha20Poly1305
         """
         self.s = s
         self.addr = client_addr
+        self.pw = pw
+        self.encryptor = encryptor
         with self.s:
             logging.info(f'Connected by {client_addr}')
             if self.auth():
@@ -116,16 +128,37 @@ class Socks5ServerConn:
         """
         logging.info(f'  data from {dst}')
         req_data = socket_recvall(self.s)
+        req_data = decrypt_ct(self.pw, req_data, self.encryptor)
         logging.info(f'  data:{req_data}')
         sock = socket.create_connection(dst)
         sock.sendall(req_data)
         msg = socket_recvall(sock)
         sock.close()
         logging.info(f'  msg:{msg}')
+        msg = encrypt_msg(self.pw, msg, self.encryptor)
         self.s.sendall(msg)
 
 
-if __name__ == '__main__':
-    server = Socks5Server(('', 8489))
+def main(argv):
+    server_address = ''
+    password = ''
+    encryptor = ''
+    opts, args = getopt.getopt(argv, 's:p:e:', ['server', 'password', 'encryptor'])
+    for opt, arg in opts:
+        if opt in ('-s', '--server'):
+            server_address = arg
+        elif opt in ('-p', '--password'):
+            password = arg.encode('ascii')
+        elif opt in ('-e', '--encryptor'):
+            encryptor = arg
+    server_split = server_address.split(':')
+    server = Socks5Server(addr=('', int(server_split[1])), pw=password, encryptor=encryptor)
     server.listen()
     server.close()
+
+
+if __name__ == '__main__':
+    main(sys.argv[1:])
+    # server = Socks5Server(('', 8489))
+    # server.listen()
+    # server.close()

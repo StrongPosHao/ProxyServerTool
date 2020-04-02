@@ -1,33 +1,35 @@
 import os
 from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.ciphers.aead import AESCCM, ChaCha20Poly1305
+from cryptography.hazmat.primitives.ciphers.aead import ChaCha20Poly1305, AESGCM
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.backends import default_backend
 import bcrypt
 
 pw = b'password'
 bcrypt_hashed = bcrypt.hashpw(pw, bcrypt.gensalt())
+
 backend = default_backend()
 salt = os.urandom(16)
 kdf = PBKDF2HMAC(
     algorithm=hashes.SHA256(),
-    length=32,
+    length=128,
     salt=salt,
     iterations=100000,
     backend=backend
 )
 key = kdf.derive(bcrypt_hashed)
+print(len(key))
 nonce = os.urandom(12)
 
 
 def client():
-    aesgcm = AESCCM(key)
+    aesgcm = AESGCM(key)
     ct = aesgcm.encrypt(nonce, bcrypt_hashed, None)
     return ct
 
 
 def server(ct):
-    aesgcm = AESCCM(key)
+    aesgcm = AESGCM(key)
     print('nonce type:', type(nonce))
     print('ct type:', type(ct))
     bcrypt_hashed = aesgcm.decrypt(nonce, ct, None)
@@ -37,8 +39,8 @@ def server(ct):
 def aes_gcm_test():
     password = b'password'
     bcrypt_hashed = bcrypt.hashpw(password, bcrypt.gensalt())
-    key = AESCCM.generate_key(bit_length=128)
-    aesgcm = AESCCM(key)
+    key = AESGCM.generate_key(bit_length=128)
+    aesgcm = AESGCM(key)
     nonce = os.urandom(12)
     ct = aesgcm.encrypt(nonce, bcrypt_hashed, None)
     print(ct)

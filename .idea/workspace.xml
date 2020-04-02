@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26016399-9d6f-4dfa-848a-e5a73778132f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/zhanghao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task2/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task2/client2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task2/server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task2/test_aes_gcm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task2/test_bcrypt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task2/test_pkbdf2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task2/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task2/cmd_line" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task2/encryption_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task2/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task2/test_cmdl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ANSProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ANSProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task1/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task1/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task1/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task1/server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Task1/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task1/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/client2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/test_aes_gcm.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/test_aes_gcm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/test_pkbdf2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/test_pkbdf2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,15 +33,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1Z6fqidvLSI1YLwi4tbNQ0iYcZa" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Task2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ProgrammingWorkspace\PyCharm\ANSProject\Task2" />
       <recent name="D:\ProgrammingWorkspace\PyCharm\ANSProject" />
     </key>
   </component>
@@ -57,8 +61,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_aes_gcm">
-    <configuration name="client2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.client">
+    <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ANSProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -71,7 +75,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task2/client2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task2/client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="encryption_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ANSProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task2/encryption_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -88,34 +114,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task1" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task1/server.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="ANSProject" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Task2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\ProgrammingWorkspace\PyCharm\ANSProject\Task2\test_pkbdf2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task2/server.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,7 +150,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_bcrypt" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_pkbdf2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ANSProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -159,7 +163,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task2/test_bcrypt.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Task2/test_pkbdf2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -170,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_aes_gcm" />
-        <item itemvalue="Python.test_bcrypt" />
-        <item itemvalue="Python.test (1)" />
-        <item itemvalue="Python.client2" />
+        <item itemvalue="Python.client" />
         <item itemvalue="Python.server" />
+        <item itemvalue="Python.test_pkbdf2" />
+        <item itemvalue="Python.encryption_test" />
+        <item itemvalue="Python.test_aes_gcm" />
       </list>
     </recent_temporary>
   </component>
@@ -200,8 +204,20 @@
       <workItem from="1585386758287" duration="896000" />
       <workItem from="1585473030626" duration="31000" />
       <workItem from="1585560241319" duration="5703000" />
-      <workItem from="1585566497505" duration="6683000" />
+      <workItem from="1585566497505" duration="6999000" />
+      <workItem from="1585620441497" duration="890000" />
+      <workItem from="1585643036816" duration="1059000" />
+      <workItem from="1585729723198" duration="19991000" />
+      <workItem from="1585794133221" duration="9656000" />
     </task>
+    <task id="LOCAL-00001" summary="'2020/3/30 21:06 Toy code of symmetric encryption algorithm finished'">
+      <created>1585573680626</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585573680626</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,14 +236,21 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="'2020/3/30 21:06 Toy code of symmetric encryption algorithm finished'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'2020/3/30 21:06 Toy code of symmetric encryption algorithm finished'" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ANSProject$test.coverage" NAME="test Coverage Results" MODIFIED="1584700242141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task1" />
     <SUITE FILE_PATH="coverage/ANSProject$test_bcrypt.coverage" NAME="test_bcrypt Coverage Results" MODIFIED="1585573472391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
     <SUITE FILE_PATH="coverage/ANSProject$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1585563791176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
     <SUITE FILE_PATH="coverage/ANSProject$utils.coverage" NAME="utils Coverage Results" MODIFIED="1584629738008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task1" />
-    <SUITE FILE_PATH="coverage/ANSProject$client.coverage" NAME="client Coverage Results" MODIFIED="1585561771249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task1" />
-    <SUITE FILE_PATH="coverage/ANSProject$test_aes_gcm.coverage" NAME="test_aes_gcm Coverage Results" MODIFIED="1585573571908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
+    <SUITE FILE_PATH="coverage/ANSProject$client.coverage" NAME="client Coverage Results" MODIFIED="1585754110777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
+    <SUITE FILE_PATH="coverage/ANSProject$test_aes_gcm.coverage" NAME="test_aes_gcm Coverage Results" MODIFIED="1585643208071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
     <SUITE FILE_PATH="coverage/ANSProject$client2.coverage" NAME="client2 Coverage Results" MODIFIED="1585562560968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
-    <SUITE FILE_PATH="coverage/ANSProject$server.coverage" NAME="server Coverage Results" MODIFIED="1585562416907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task1" />
+    <SUITE FILE_PATH="coverage/ANSProject$test_pkbdf2.coverage" NAME="test_pkbdf2 Coverage Results" MODIFIED="1585752138144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
+    <SUITE FILE_PATH="coverage/ANSProject$server.coverage" NAME="server Coverage Results" MODIFIED="1585754108192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
+    <SUITE FILE_PATH="coverage/ANSProject$encryption_test.coverage" NAME="encryption_test Coverage Results" MODIFIED="1585749983249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
   </component>
 </project>

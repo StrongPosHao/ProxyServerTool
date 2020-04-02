@@ -26,6 +26,9 @@ def socket_recvall(conn: socket.socket):
         else:
             return recv_data
 
+def encrypt(pw, msg):
+
+
 
 class HTTPRequest(BaseHTTPRequestHandler):
     def __init__(self, request_text):
