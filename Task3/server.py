@@ -90,44 +90,50 @@ class Socks5ServerConn:
                     logging.info('  send connection response')
                     self.forward(dest)
 
+
     def ake(self):
+        """
+        AKE implementation in server side.
+        :return:
+        """
         # server private key
         private_key = rsa.PrivateKey.load_pkcs1(get_server_rsa_sk())
-        logging.info('OK')
-        # receive random number r
+        # receive data from client: (r, Sig(r), Cert_client)
         data = socket_recvall(self.s)
         len_cert_client = data[:2]
+        # get r
         r = data[:38]
-        # receive client signature Sig(r)
+        # get client signature Sig(r)
         sig_client = data[38:294]
-        # receive Cert_client
+        # get Cert_client
         cert_client = data[294:]
         # check Cert_client
         id_client = cert_client[426:]
         if id_client != b'client':
             return False
-        logging.info('OK2')
         # Verify Sig(r)
-        client_public_key = rsa.PublicKey.load_pkcs1(public_key)
+        client_public_key = rsa.PublicKey.load_pkcs1(get_client_rsa_pk())
         try:
             rsa.verify(r, sig_client, client_public_key)
         except VerificationError:
             return False
-        # send random number s
+        # generate random number s
         s = random.randint(0, 1000000000000)
         s = s.to_bytes(length=38, byteorder=sys.byteorder)  # 38 bits
         # compute session key k
-        k = hashlib.sha256(self.pw + id_server + id_client + id_server + r + s).hexdigest()
-        # send c
-        c = AESGCM(k).encrypt(nonce, id_server, None)
-        # send Sig(r, s, c, id_client)
+        k = hashlib.sha256(self.pw + id_server + id_client + id_server + r + s)
+        # get ciphertext c
+        c = AESGCM(k.digest()).encrypt(nonce, id_server, None)
+        # get Sig(r, s, c, id_client)
         sig = rsa.sign(s + r + id_client + c, private_key, 'SHA-256')  # 256 bits
-        # send Cert_server
+        # generate Cert_server
         cert = get_server_rsa_pk() + id_server  # 2 bytes to represent
+        # send data to client: (s, c, Sig(r, s, c, id_client), Cert_server)
         len_cert = len(cert).to_bytes(length=2, byteorder=sys.byteorder)
         self.s.sendall(len_cert + s + sig + cert + c)
-        self.pw = k
-        logging.info(f'Server shared session key: {k}')
+        self.pw = k.digest()
+        logging.info(f'Server shared session key: {k.hexdigest()}')
+        return True
 
     def auth(self):
         """

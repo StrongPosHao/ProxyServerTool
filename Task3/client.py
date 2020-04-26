@@ -154,6 +154,10 @@ class Socks5ClientConn:
         self.local.sendall(msg)
 
     def ake(self):
+        """
+        AKE implementation in client side.
+        :return: if key exchange succeed, return True else False
+        """
         # client private key
         private_key = rsa.PrivateKey.load_pkcs1(get_client_rsa_sk())
         # generate random number r
@@ -166,8 +170,8 @@ class Socks5ClientConn:
         # send r, Sig(r), Cert_Client
         self.s.sendall(r + sig + cert)
         # receive data from server side
-        data = socket_recvall(self.s)
-        logging.info(len(data))
+        # data = socket_recvall(self.s)
+        data = self.s.recv(4096)
         # Cert_server length
         len_cert = data[:2]
         len_cert = int.from_bytes(len_cert, byteorder=sys.byteorder)
@@ -177,33 +181,27 @@ class Socks5ClientConn:
         sig_server = data[40:296]
         # Cert_server
         cert_server = data[296:296 + len_cert]
-        # cipher text
+        # ciphertext
         c = data[296 + len_cert:]
-
         id_server = cert_server[426:]
-        logging.info('OK3')
         # check Cert_server
-        logging.info(id_server)
         if id_server != b'server':
             return False
-        logging.info('OK4')
         # verify Sig(r, s, c, id_client)
         server_public_key = rsa.PublicKey.load_pkcs1(get_server_rsa_pk())
         try:
-            rsa.verify(r + s + c + id_server, sig_server, server_public_key)
+            rsa.verify(s + r + id_client + c, sig_server, server_public_key)
         except VerificationError:
             return False
-        logging.info('OK5')
         # compute session key k
-        k = hashlib.sha256(self.pw + id_server + id_client + id_server + r + s).hexdigest()
-        logging.info('OK6')
+        k = hashlib.sha256(self.pw + id_server + id_client + id_server + r + s)
         # decrypt c and check id_server
-        id_dec = AESGCM(k).decrypt(nonce, c, None)
+        id_dec = AESGCM(k.digest()).decrypt(nonce, c, None)
         if id_dec != b'server':
             return False
-        logging.info('OK7')
-        self.pw = k
-        logging.info(f'Client shared session key: {k}')
+        self.pw = k.digest()
+        logging.info(f'Client shared session key: {k.hexdigest()}')
+        return True
 
     def auth(self):
         """

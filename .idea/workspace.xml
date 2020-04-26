@@ -2,24 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26016399-9d6f-4dfa-848a-e5a73778132f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Task3/ClientRSAKey/pk.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task3/ClientRSAKey/sk.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task3/ServerRSAKey/pk.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task3/ServerRSAKey/sk.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task3/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task3/cmd_line" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task3/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task3/server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task3/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test/pk.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test/sk.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test/temp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test/test1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calculate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ANSProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ANSProject.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task3/client.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task3/server.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task2/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Task2/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task3/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task3/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task3/cmd_line" beforeDir="false" afterPath="$PROJECT_DIR$/Task3/cmd_line.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task3/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task3/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task3/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task3/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test/test1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calculate.py" beforeDir="false" afterPath="$PROJECT_DIR$/calculate.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +77,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.calculate">
     <configuration name="calculate" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ANSProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -199,9 +190,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.test1" />
         <item itemvalue="Python.calculate" />
+        <item itemvalue="Python.test1" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.client" />
         <item itemvalue="Python.server" />
       </list>
@@ -237,7 +228,9 @@
       <workItem from="1586002096009" duration="4000" />
       <workItem from="1587522646987" duration="9991000" />
       <workItem from="1587569045712" duration="752000" />
-      <workItem from="1587607003780" duration="23599000" />
+      <workItem from="1587607003780" duration="32111000" />
+      <workItem from="1587652511815" duration="2507000" />
+      <workItem from="1587867722551" duration="306000" />
     </task>
     <task id="LOCAL-00001" summary="'2020/3/30 21:06 Toy code of symmetric encryption algorithm finished'">
       <created>1585573680626</created>
@@ -260,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585814784030</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="'2020/3/30 21:06 Task3 store'">
+      <created>1587642502659</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587642502659</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,7 +284,8 @@
     <MESSAGE value="'2020/3/30 21:06 Toy code of symmetric encryption algorithm finished'" />
     <MESSAGE value="'2020/3/30 21:06 Task2 main function implemented'" />
     <MESSAGE value="'2020/3/30 21:06 Task2 complete'" />
-    <option name="LAST_COMMIT_MESSAGE" value="'2020/3/30 21:06 Task2 complete'" />
+    <MESSAGE value="'2020/3/30 21:06 Task3 store'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'2020/3/30 21:06 Task3 store'" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ANSProject$test_bcrypt.coverage" NAME="test_bcrypt Coverage Results" MODIFIED="1585573472391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
@@ -293,11 +294,11 @@
     <SUITE FILE_PATH="coverage/ANSProject$utils.coverage" NAME="utils Coverage Results" MODIFIED="1584629738008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task1" />
     <SUITE FILE_PATH="coverage/ANSProject$client.coverage" NAME="client Coverage Results" MODIFIED="1585754110777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
     <SUITE FILE_PATH="coverage/ANSProject$test_aes_gcm.coverage" NAME="test_aes_gcm Coverage Results" MODIFIED="1585643208071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
-    <SUITE FILE_PATH="coverage/ANSProject$test1.coverage" NAME="test1 Coverage Results" MODIFIED="1587627195861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
+    <SUITE FILE_PATH="coverage/ANSProject$test1.coverage" NAME="test1 Coverage Results" MODIFIED="1587645765312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
     <SUITE FILE_PATH="coverage/ANSProject$client2.coverage" NAME="client2 Coverage Results" MODIFIED="1585562560968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
     <SUITE FILE_PATH="coverage/ANSProject$test_pkbdf2.coverage" NAME="test_pkbdf2 Coverage Results" MODIFIED="1585752138144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
     <SUITE FILE_PATH="coverage/ANSProject$server.coverage" NAME="server Coverage Results" MODIFIED="1585754108192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
-    <SUITE FILE_PATH="coverage/ANSProject$calculate.coverage" NAME="calculate Coverage Results" MODIFIED="1587564590662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ANSProject$calculate.coverage" NAME="calculate Coverage Results" MODIFIED="1587654415083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ANSProject$encryption_test.coverage" NAME="encryption_test Coverage Results" MODIFIED="1585749983249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Task2" />
   </component>
 </project>

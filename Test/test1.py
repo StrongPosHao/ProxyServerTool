@@ -1,5 +1,8 @@
 import rsa
+import hashlib
 
+x = hashlib.sha256(b'hello').digest()
+print(type(x))
 # with open('pk.pem', 'r') as f:
 #     public_key = rsa.PublicKey.load_pkcs1(f.read().encode())
 # print(public_key)

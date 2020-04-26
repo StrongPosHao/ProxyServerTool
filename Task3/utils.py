@@ -57,8 +57,7 @@ def encrypt_msg(pw, msg, encryption):
         backend=default_backend()
     )
     # use PBKDF2 to derive the key
-    # key = kdf.derive(pw)
-    key = pw
+    key = kdf.derive(pw)
     encryptor = AESGCM(key) if encryption == 'AES-GCM' else ChaCha20Poly1305(key)
     ct = encryptor.encrypt(nonce, msg, None)
     return ct
@@ -81,8 +80,7 @@ def decrypt_ct(pw, ct, decryption):
         backend=default_backend()
     )
     # use PBKDF2 to derive the key
-    # key = kdf.derive(pw)
-    key = pw
+    key = kdf.derive(pw)
     # Initiate encryptor with the symmetric key
     decryptor = AESGCM(key) if decryption == 'AES-GCM' else ChaCha20Poly1305(key)
     # decrypt ciphertext and return the message
